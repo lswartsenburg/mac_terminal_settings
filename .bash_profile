@@ -18,6 +18,16 @@ load_nvm() {
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 }
 
+github_work() {
+	ssh-add -D
+	ssh-add ~/.ssh/id_rsa
+}
+
+github_private() {
+	ssh-add -D
+	ssh-add ~/.ssh/id_rsa_private
+}
+
 timestamp "Start"
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -85,8 +95,3 @@ export GREP_COLOR='1;35;40'
 export HISTCONTROL=ignoreboth:erasedups
 
 timestamp "Adding color and aliases done"
-
-ssh-add ~/.ssh/id_rsa_private 2>/dev/null
-ssh-add ~/.ssh/id_rsa 2>/dev/null
-
-timestamp "Adding ssh keys done"
