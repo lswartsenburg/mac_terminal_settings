@@ -1,5 +1,15 @@
+# If you need to have php@7.2 first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/php@7.2/bin:$PATH"' >> ~/.bash_profile
+#   echo 'export PATH="/usr/local/opt/php@7.2/sbin:$PATH"' >> ~/.bash_profile
+
+# For compilers to find php@7.2 you may need to set:
+#   export LDFLAGS="-L/usr/local/opt/php@7.2/lib"
+#   export CPPFLAGS="-I/usr/local/opt/php@7.2/include"
+
+
+
 # Should we print timestamps?
-TIME_START=true
+TIME_START=false
 
 # Print timestamps to determine why starting a terminal is slow
 timestamp() {
@@ -16,6 +26,10 @@ timestamp() {
 load_nvm() {
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+
+nvm_use() {
+	load_nvm && nvm use
 }
 
 github_work() {
@@ -95,3 +109,17 @@ export GREP_COLOR='1;35;40'
 export HISTCONTROL=ignoreboth:erasedups
 
 timestamp "Adding color and aliases done"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+# export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+# export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
+export PATH="/Applications/MAMP/bin/php/php7.3.7/bin:$PATH"
+
+
+PHP_VERSION=`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`
+
+export PATH="/Users/lucasswartsenburg/google-cloud-sdk/bin:/Users/lucasswartsenburg/.composer/vendor/bin:$PATH"
