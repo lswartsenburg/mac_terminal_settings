@@ -79,6 +79,8 @@ timestamp "History appending done"
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 
 
+# Install https://github.com/gibbling/dircolors
+
 # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
 if type -P gdircolors >/dev/null ; then
 	if [[ -f ~/.dircolors ]] ; then
