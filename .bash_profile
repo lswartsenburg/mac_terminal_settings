@@ -86,7 +86,7 @@ if type -P gdircolors >/dev/null ; then
 	if [[ -f ~/.dircolors ]] ; then
 		eval $(gdircolors ~/.dircolors/dircolors.256dark)
 	elif [[ -f /etc/DIR_COLORS ]] ; then
-		eval $(dircolors -b /etc/DIR_COLORS)
+		eval $(gdircolors -b /etc/DIR_COLORS)
 	fi
 fi
 
