@@ -1,0 +1,3 @@
+plugins: [
+    'hyperterm-atom-dark'
+]
