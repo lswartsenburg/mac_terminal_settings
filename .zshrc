@@ -1,9 +1,11 @@
 # ~/.zshrc
-load_nvm() {
-	export NVM_DIR="$HOME/.nvm"
+
+# Installing nvm: https://github.com/nvm-sh/nvm
+
+export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-}
+
 function venv_activate() {
     source .virtualenv/bin/activate
 }
@@ -24,14 +26,6 @@ eval "$(starship init zsh)"
 # Install https://github.com/gibbling/dircolors
 
 # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-if type -P gdircolors >/dev/null ; then
-	if [[ -f ~/.dircolors ]] ; then
-		eval $(gdircolors ~/.dircolors/dircolors.256dark)
-	elif [[ -f /etc/DIR_COLORS ]] ; then
-		eval $(gdircolors -b /etc/DIR_COLORS)
-	fi
-fi
-
 alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -A'
@@ -41,3 +35,6 @@ export GREP_COLOR='1;35;40'
 
 export HISTCONTROL=ignoreboth:erasedups
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
